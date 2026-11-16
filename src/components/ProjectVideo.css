@@ -1,0 +1,84 @@
+.pv-video {
+  margin-top: 48px;
+  display: grid;
+  gap: 16px;
+}
+.pv-video-title {
+  font-size: 1.5rem;
+}
+.pv-video-figure {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.pv-video-figure figcaption {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.pv-video-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--dark);
+  box-shadow: var(--shadow-soft);
+}
+.pv-video-frame.is-pending {
+  aspect-ratio: auto;
+  min-height: clamp(180px, 28vw, 260px);
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  border: 1.5px dashed color-mix(in srgb, var(--ink) 22%, transparent);
+  background-color: var(--bg-elev);
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+  background-size: 18px 18px;
+  box-shadow: none;
+}
+.pv-video-play {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink-faint);
+  border: 1px solid var(--line);
+}
+.pv-video-frame.is-pending .hand {
+  font-size: 1.6rem;
+  color: var(--ink-soft);
+  transform: rotate(-2deg);
+}
+
+/* Portrait clips (phone footage): sized to the viewport, caption beside it on wide screens. */
+.pv-video-figure.is-portrait {
+  justify-items: center;
+}
+.pv-video-figure.is-portrait .pv-video-frame {
+  /* explicit height + aspect-ratio → width follows; contain covers very narrow screens */
+  height: min(72vh, 620px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+.pv-video-figure.is-portrait figcaption {
+  max-width: 46ch;
+  text-align: center;
+}
+@media (min-width: 760px) {
+  .pv-video-figure.is-portrait {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: end;
+    justify-items: start;
+    gap: 28px;
+  }
+  .pv-video-figure.is-portrait figcaption {
+    text-align: left;
+    padding-bottom: 8px;
+    border-left: 2px solid var(--orange);
+    padding-left: 16px;
+  }
+}

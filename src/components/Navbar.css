@@ -1,0 +1,139 @@
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+.navbar.is-scrolled,
+.navbar.is-open {
+  background: var(--nav-bg);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  border-bottom-color: var(--line);
+}
+
+.navbar-inner {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.12rem;
+  letter-spacing: -0.02em;
+}
+.brand-mark svg {
+  transition: transform 0.5s var(--ease-out);
+}
+.brand:hover .brand-mark svg {
+  transform: rotate(-12deg) scale(1.05);
+}
+.brand-dim {
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-elev) 70%, transparent);
+}
+.nav-link {
+  display: block;
+  padding: 7px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.nav-link:hover {
+  color: var(--ink);
+}
+.nav-link.is-active {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.icon-btn:hover {
+  color: var(--ink);
+  background: var(--blue-soft);
+}
+.theme-toggle {
+  border: 1px solid var(--line);
+  margin-left: 6px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.mobile-menu {
+  border-top: 1px solid var(--line);
+  padding: 10px 0 18px;
+}
+.mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  gap: 4px;
+}
+.mobile-menu .nav-link {
+  padding: 12px 14px;
+  font-size: 1.05rem;
+  border-radius: 12px;
+}
+
+@media (max-width: 860px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-actions {
+    margin-left: auto;
+  }
+  .menu-toggle {
+    display: grid;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-dim {
+    display: none;
+  }
+  .nav-actions {
+    gap: 0;
+  }
+}

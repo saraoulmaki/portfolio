@@ -1,0 +1,35 @@
+.footer {
+  background: var(--dark);
+  color: var(--on-dark);
+  --ink: var(--on-dark);
+  --ink-soft: var(--on-dark-soft);
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 22px;
+  font-size: 0.9rem;
+}
+.footer-dim {
+  color: var(--on-dark-soft);
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.footer-links .icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.footer-top {
+  margin-left: 10px;
+  color: var(--on-dark-soft);
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer-top:hover {
+  color: var(--on-dark);
+}

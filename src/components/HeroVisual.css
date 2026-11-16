@@ -1,0 +1,190 @@
+.hero-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+/* ---------- soft backdrop ---------- */
+.hv-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.hv-disc {
+  position: absolute;
+  inset: 8% 6% 14%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--blue) 18%, transparent), transparent 62%),
+    radial-gradient(circle at 70% 75%, var(--orange-soft), transparent 55%);
+  filter: blur(6px);
+}
+
+/* ---------- 3D stage ---------- */
+.hv-stage {
+  position: absolute;
+  inset: 0;
+}
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+  touch-action: pan-y; /* vertical swipes still scroll the page on mobile */
+  border-radius: 28px;
+  outline: none;
+}
+.hero-scene:active {
+  cursor: grabbing;
+}
+.hero-scene:focus-visible {
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--blue);
+}
+
+.hv-loading {
+  position: absolute;
+  inset: 28%;
+  border-radius: 24px;
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+  animation: hv-pulse 1.4s ease-in-out infinite;
+}
+@keyframes hv-pulse {
+  50% {
+    opacity: 0.4;
+    transform: scale(0.96);
+  }
+}
+
+/* ---------- interaction buttons ---------- */
+.ws-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 6px 5px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-elev) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-soft);
+  white-space: nowrap;
+}
+.ws-controls-label {
+  margin-right: 4px;
+  font-family: var(--font-hand);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--ink-faint);
+}
+.ws-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 0 13px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.ws-btn:hover {
+  background: var(--blue-soft);
+  color: var(--ink);
+}
+.ws-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--ink) 25%, transparent);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.ws-btn[aria-pressed='true'] .ws-dot,
+.ws-btn.is-running .ws-dot {
+  background: var(--orange);
+  box-shadow: 0 0 0 3px var(--orange-soft);
+}
+
+/* ---------- fallback ---------- */
+.workshop-fallback {
+  margin: 0;
+  position: absolute;
+  inset: 8%;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 12px;
+}
+.workshop-fallback svg {
+  width: 100%;
+  max-width: 400px;
+}
+.workshop-fallback figcaption {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+/* ---------- handwritten annotations ---------- */
+.annotation {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+.annotation-text {
+  font-size: clamp(1.2rem, 1.9vw, 1.55rem);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--ink);
+}
+.annotation-arrow {
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+.annotation-down-right .annotation-arrow,
+.annotation-up-right .annotation-arrow {
+  margin-left: 28px;
+}
+.annotation-down-left,
+.annotation-up-left {
+  align-items: flex-end;
+}
+.annotation-down-left .annotation-arrow,
+.annotation-up-left .annotation-arrow {
+  margin-right: 28px;
+}
+
+.an-drag {
+  bottom: 13%;
+  right: -2%;
+}
+.an-drag .annotation-text {
+  color: var(--blue-ink);
+}
+
+@media (max-width: 600px) {
+  .an-drag {
+    bottom: 13%;
+    right: 2%;
+  }
+  .ws-controls {
+    padding-left: 10px;
+  }
+  .ws-btn {
+    padding: 0 10px;
+    font-size: 0.8rem;
+  }
+}
