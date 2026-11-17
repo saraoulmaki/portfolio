@@ -9,6 +9,7 @@ export const site = {
   school: 'Polytech Tours',
   tagline:
     'I’m an engineering student who enjoys exploring how electronics, code, and creativity come together — from embedded systems and digital hardware to hands-on projects.',
+  email: 'sarah.oulmaki@gmail.com',
   resumeUrl: 'https://github.com/saraoulmaki/saraoulmaki/blob/main/Resume_Sara_OULMAKI.pdf',
 
   socials: {

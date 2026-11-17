@@ -98,3 +98,23 @@ export const FlaskIcon = (p: P) => (
     <path d="M7 15h10" />
   </svg>
 )
+
+export const MailIcon = (p: P) => (
+  <svg {...base(p)}>
+    <rect x="3" y="5" width="18" height="14" rx="2.5" />
+    <path d="m4 7 8 6 8-6" />
+  </svg>
+)
+
+export const CopyIcon = (p: P) => (
+  <svg {...base(p)}>
+    <rect x="9" y="9" width="11" height="11" rx="2.2" />
+    <path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15" />
+  </svg>
+)
+
+export const CheckIcon = (p: P) => (
+  <svg {...base(p)}>
+    <path d="m5 12.5 4.2 4.2L19 7" />
+  </svg>
+)

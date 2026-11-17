@@ -1,6 +1,6 @@
 import { site } from '../data/site'
 import { Reveal } from '../components/Reveal'
-import { GitHubIcon, LinkedInIcon } from '../components/Icons'
+import { ContactCard } from '../components/ContactCard'
 import './About.css'
 
 // Tools from my projects, university labs and work experience, in small groups.
@@ -78,19 +78,15 @@ export function About() {
             </dl>
           </div>
 
-          <div className="about-links">
-            <a className="btn btn-ghost" href={site.socials.linkedin} target="_blank" rel="noreferrer">
-              <LinkedInIcon width={18} height={18} /> LinkedIn
-            </a>
-            <a className="btn btn-ghost" href={site.socials.github} target="_blank" rel="noreferrer">
-              <GitHubIcon width={18} height={18} /> GitHub
-            </a>
-          </div>
           <p className="about-note hand" aria-hidden="true">
             always learning, always tinkering ✎
           </p>
         </Reveal>
       </div>
+
+      <Reveal className="container connect-wrap">
+        <ContactCard />
+      </Reveal>
     </section>
   )
 }
